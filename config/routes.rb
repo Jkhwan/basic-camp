@@ -1,5 +1,6 @@
 BasicCamp::Application.routes.draw do
 
+  get "users/new"
   root to: 'welcome#index'
   resources :projects, only: [:show, :new, :index, :create, :destroy]
   resources :users, only: [:new, :create]
