@@ -24,14 +24,19 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-gem 'pry-rails'
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+# Debugging tools
+group :development do
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem "binding_of_caller"
 end
 
 # Use ActiveModel has_secure_password
