@@ -1,0 +1,24 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+ul.navbar-nav a {
+  padding: 0px 15px;
+}
+
+.registration.panel-primary {
+  width: 40%;
+  margin: 20px auto;
+  input.form-control {
+    margin-bottom: 10px;
+  }
+  h4 {
+    margin: 0px;
+  }
+}
+
+@media (min-width: 768px) {
+  .registration.panel-primary div.input {
+      width: 49%;
+      display: inline-block;
+  }
+}
