@@ -1,2 +1,11 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<%= link_to "Add a project", new_project_path %>
+<div class=row>
+  <% if @projects %>
+    <% @projects.each do |project| %>  
+      <div class="col-xs-4">
+        Name: <%= link_to project.name, project_path(project) %><br>
+        Description: <%= project.description %><br>
+      </div>
+    <% end %>
+  <% end %>
+</div>

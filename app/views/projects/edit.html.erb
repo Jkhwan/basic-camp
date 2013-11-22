@@ -2,15 +2,15 @@
 
 <div class="panel panel-primary login">
   <div class="panel-heading">
-    <h4>Add a New Project</h4>
+    <h4>Edit Project</h4>
   </div>
   <br>
   <div class="panel-body">
   <%= simple_form_for @project, html: { class: "form-inline", role: "form" }, defaults: { error: false, input_html: {class: "form-control"} } do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description, as: :text, input_html: { rows: 6 } %>
+    <%= f.input :name, input_html: { value: @project.name } %>
+    <%= f.input :description, as: :text, input_html: { rows: 6, value: @project.description } %>
     <br>
-    <%= f.button :submit, "Create Project", class: 'btn btn-primary' %>
+    <%= f.button :submit, "Edit Project", class: 'btn btn-primary' %>
   <% end %>
   </div><br>
 </div>
