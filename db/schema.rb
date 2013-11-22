@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131122191226) do
+ActiveRecord::Schema.define(version: 20131122215938) do
 
   create_table "participants", force: true do |t|
     t.datetime "created_at"
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(version: 20131122191226) do
     t.datetime "updated_at"
     t.integer  "owner_id"
   end
+
+  create_table "todos", force: true do |t|
+    t.string   "name"
+    t.datetime "due_date"
+    t.integer  "importance"
+    t.boolean  "completed"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "todos", ["project_id"], name: "index_todos_on_project_id"
 
   create_table "users", force: true do |t|
     t.string   "username"

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  due_date: 2013-11-22 21:59:38
+  importance: 1
+  completed: false
+  project_id: 
+
+two:
+  name: MyString
+  due_date: 2013-11-22 21:59:38
+  importance: 1
+  completed: false
+  project_id: 
