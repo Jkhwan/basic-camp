@@ -1,10 +1,9 @@
 BasicCamp::Application.routes.draw do
 
-  get "users/new"
   root to: 'welcome#index'
   resources :projects, only: [:show, :new, :index, :create, :destroy]
   resources :users, only: [:new, :create]
-  
+  resources :sessions, only: [:index, :create, :destroy], path: :login
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+
+  before_action :restrict_access
+  
   def show
   end
 

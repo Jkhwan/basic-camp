@@ -1,5 +1,9 @@
 class WelcomeController < ApplicationController
   def index
-    @user = User.new
+    if current_user
+      render 'projects/index'
+    else
+      @user = User.new
+    end
   end
 end

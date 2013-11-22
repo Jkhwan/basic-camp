@@ -7,13 +7,17 @@ ul.navbar-nav a {
 
 .registration.panel-primary {
   width: 40%;
-  margin: 20px auto;
+  margin: 100px auto;
   input.form-control {
     margin-bottom: 10px;
   }
   h4 {
     margin: 0px;
   }
+}
+
+div.alert-danger {
+  margin: 0px auto;
 }
 
 @media (min-width: 768px) {

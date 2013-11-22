@@ -8,6 +8,13 @@
 </head>
 <body>
 
+<%= render "/layouts/navbar" %>
+
+<% flash.each do |key,value| %>
+  <% key = bootstrap_alert(key) %>
+  <div class="text-center alert alert-<%= key %> %>"><%= value %></div>
+<% end %>
+
 <%= yield %>
 
 </body>

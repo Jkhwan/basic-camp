@@ -1,0 +1,29 @@
+<div class="panel panel-primary login">
+  <div class="panel-heading">
+    <h4>Login</h4>
+  </div>
+  <br>
+  <div class="panel-body">
+    <%= form_tag sessions_path do %>
+
+      <%= label_tag "Username" %><br>
+      <%= text_field_tag :username, nil, class: "form-control", placeholder: "Username" %>
+
+      <%= label_tag "Password" %><br>
+      <%= password_field_tag :password, nil, class: "form-control", placeholder: "Password" %>
+
+      <br>
+
+      <% if @user && @user.errors.any? %>
+        <div class="alert alert-danger">
+          <% @user.errors.full_messages.each_with_index do |msg, index| %>
+            <p><%= index+1 %>. <%= msg %>.<p> 
+          <% end %>
+        </div>
+        <br>
+      <% end %>
+
+      <%= submit_tag "Log In", class: "btn btn-primary" %>
+    <% end %>    
+  </div><br>
+</div>
