@@ -1,5 +1,11 @@
 BasicCamp::Application.routes.draw do
 
+  get "messages/show"
+  get "messages/index"
+  get "messages/edit"
+  get "discussions/show"
+  get "discussions/index"
+  get "discussions/edit"
   root to: 'welcome#index'
   resources :projects do
     resources :todos
