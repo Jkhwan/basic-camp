@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131122231116) do
+ActiveRecord::Schema.define(version: 20131123015455) do
+
+  create_table "discussions", force: true do |t|
+    t.string   "name"
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "discussions", ["project_id"], name: "index_discussions_on_project_id"
+  add_index "discussions", ["user_id"], name: "index_discussions_on_user_id"
+
+  create_table "messages", force: true do |t|
+    t.string   "subject"
+    t.text     "content"
+    t.integer  "Discussion_id"
+    t.integer  "User_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["Discussion_id"], name: "index_messages_on_Discussion_id"
+  add_index "messages", ["User_id"], name: "index_messages_on_User_id"
 
   create_table "participants", force: true do |t|
     t.datetime "created_at"
