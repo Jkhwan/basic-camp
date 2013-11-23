@@ -1,2 +1,23 @@
-<h1>Discussions#index</h1>
-<p>Find me in app/views/discussions/index.html.erb</p>
+<% content_for :discussions, "active" %>
+<%= link_to "Back to main project page", project_path(@project) %>
+<br><br>
+
+<div class="row">
+
+  <div class="side-menu col-xs-3">
+    <%= render "/layouts/side_menu" %>
+  </div>
+  <div class="content col-xs-9">
+    <% if @discussions %>
+      <% @discussions.each do |discussion| %>
+        <%= discussion.subject %>
+        <%= discussion.content %>
+        <%= link_to "Edit this discussion", edit_project_discussion_path(@project, discussion.id) %>
+        <br>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<br>
+<%= link_to "Add a new disucssion", new_project_discussion_path(@project) %>

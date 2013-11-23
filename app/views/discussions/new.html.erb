@@ -1,0 +1,24 @@
+<%= link_to "Back to Discussion page", project_discussions_path(@project) %>
+
+<div class="panel panel-primary login">
+  <div class="panel-heading">
+    <h4>Add a New Discussion</h4>
+  </div>
+  <br>
+  <div class="panel-body">
+  <%= simple_form_for @discussion, url: project_discussions_path, html: { class: "form-inline todo", role: "form" }, defaults: { required: false, error: false, input_html: {class: "form-control"} } do |f| %>
+    <%= f.input :subject, label: "Subject *" %>
+    <%= f.input :content, label: "Content *", as: :text, input_html: { rows: 6 } %>
+    <br>
+    <% if @discussion && @discussion.errors.any? %>
+      <div class="alert alert-danger">
+        <% @discussion.errors.full_messages.each_with_index do |msg, index| %>
+          <p><%= index+1 %>. <%= msg %>.<p> 
+        <% end %>
+      </div>
+      <br>
+    <% end %>
+    <%= f.button :submit, "Create Discussion", class: 'btn btn-primary' %>
+  <% end %>
+  </div><br>
+</div>

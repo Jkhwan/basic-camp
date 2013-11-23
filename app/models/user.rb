@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :projects, through: :participants
   has_many :participants
+  has_many :discussions
+  has_many :messages
 
   has_secure_password
 

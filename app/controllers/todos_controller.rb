@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
 
-  before_action :require_user, :require_project
+  before_action :restrict_access, :require_user, :require_project
   before_action :require_todo, only: [:edit, :update]
 
   def new

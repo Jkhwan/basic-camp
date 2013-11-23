@@ -6,11 +6,19 @@
   </div>
   <br>
   <div class="panel-body">
-  <%= simple_form_for @todo, url: project_todos_path, html: { class: "form-inline todo", role: "form" }, defaults: { error: false, input_html: {class: "form-control"} } do |f| %>
-    <%= f.input :name %>
+  <%= simple_form_for @todo, url: project_todos_path, html: { class: "form-inline todo", role: "form" }, defaults: { required: false, error: false, input_html: {class: "form-control"} } do |f| %>
+    <%= f.input :name, label: "Name *" %>
     <%= f.input :importance, collection: 1..5, selected: 1 %>
     <%= f.input :due_date, as: :date %>
     <%= f.input :completed, as: :boolean %>
+    <% if @todo && @todo.errors.any? %>
+      <div class="alert alert-danger">
+        <% @todo.errors.full_messages.each_with_index do |msg, index| %>
+          <p><%= index+1 %>. <%= msg %>.<p> 
+        <% end %>
+      </div>
+      <br>
+    <% end %>
     <%= f.button :submit, "Create Todo", class: 'btn btn-primary' %>
   <% end %>
   </div><br>
