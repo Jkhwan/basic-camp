@@ -1,0 +1,26 @@
+<% content_for :todos, "active" %>
+<%= link_to "Back to main project page", project_path(@project) %>
+<br><br>
+
+<div class="row">
+
+  <div class="side-menu col-xs-3">
+    <%= render "/layouts/side_menu" %>
+  </div>
+  <div class="content col-xs-9">
+    <% if @todos %>
+      <% @todos.each do |todo| %>
+        <%= todo.name %>
+        <%= todo.importance %>
+        <%= todo.due_date %>
+        <%= todo.completed %>
+        <%= link_to "Edit this todo", edit_project_todo_path(@project, todo.id) %>
+        <br>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+<br>
+<%= link_to "Add a new todo", new_project_todo_path(@project) %>

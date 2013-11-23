@@ -1,0 +1,17 @@
+<%= link_to "Back to Todo page", project_todos_path(@project) %>
+
+<div class="panel panel-primary login">
+  <div class="panel-heading">
+    <h4>Add a New Todo</h4>
+  </div>
+  <br>
+  <div class="panel-body">
+  <%= simple_form_for @todo, url: project_todos_path, html: { class: "form-inline todo", role: "form" }, defaults: { error: false, input_html: {class: "form-control"} } do |f| %>
+    <%= f.input :name %>
+    <%= f.input :importance, collection: 1..5, selected: 1 %>
+    <%= f.input :due_date, as: :date %>
+    <%= f.input :completed, as: :boolean %>
+    <%= f.button :submit, "Create Todo", class: 'btn btn-primary' %>
+  <% end %>
+  </div><br>
+</div>

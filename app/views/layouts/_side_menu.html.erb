@@ -1,0 +1,6 @@
+<ul class="nav nav-pills nav-stacked">
+  <li class="<%= yield :home %>"><%= link_to "Home", [@project] %></li>
+  <li class="<%= yield :todos %>"><%= link_to "Todo", [@project, :todos] %></li>
+  <li class="<%= yield :discussions %>"><a href="#">Discussion</a></li>
+  <li class="<%= yield :files %>"><a href="#">Files</a></li>
+</ul>    

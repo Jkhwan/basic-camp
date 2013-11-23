@@ -1,0 +1,35 @@
+// Place all the styles related to the Todos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+form.todo {
+  label {
+    display: block;
+  }
+  label.boolean {
+    display: inline;
+  }
+  div.todo_importance {
+    position: relative;
+    top: -5px;
+  }
+  div.todo_completed {
+    margin-top: 20px;
+  }
+  input.boolean {
+    border: 0px;
+    width: 30px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+}
+
+@media (min-width: 768px) {
+  select.date {
+    width: 32%;
+  }
+  div.todo_importance, div.todo_name {
+    width: 48%;
+    display: inline-block;
+  }
+}

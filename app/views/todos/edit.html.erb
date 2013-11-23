@@ -1,0 +1,17 @@
+<%= link_to "Back to Todo page", project_todos_path(@project) %>
+
+<div class="panel panel-primary login">
+  <div class="panel-heading">
+    <h4>Edit Todo</h4>
+  </div>
+  <br>
+  <div class="panel-body">
+  <%= simple_form_for @todo, url: project_todo_path(@project, @todo), html: { class: "form-inline todo", role: "form" }, defaults: { error: false, input_html: {class: "form-control"} } do |f| %>
+    <%= f.input :name, input_html: { value: @todo.name } %>
+    <%= f.input :importance, collection: 1..5, selected: @todo.importance %>
+    <%= f.input :due_date, as: :date, input_html: { value: @todo.due_date } %>
+    <%= f.input :completed, as: :boolean, input_html: { value: @todo.completed } %>
+    <%= f.button :submit, "Submit your changes", class: 'btn btn-primary' %>
+  <% end %>
+  </div><br>
+</div>

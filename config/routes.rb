@@ -1,7 +1,9 @@
 BasicCamp::Application.routes.draw do
 
   root to: 'welcome#index'
-  resources :projects
+  resources :projects do
+    resources :todos
+  end
   resources :users, only: [:new, :create]
   resources :sessions, only: [:index, :create, :destroy], path: :login
   

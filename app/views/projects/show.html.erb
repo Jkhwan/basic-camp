@@ -1,14 +1,10 @@
+<% content_for :home, "active" %>
 <%= link_to "Back to all projects", projects_path %>
 <br><br>
 <div class="row">
 
   <div class="side-menu col-xs-3">
-    <ul class="nav nav-pills nav-stacked">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Todos</a></li>
-      <li><a href="#">Discussion</a></li>
-      <li><a href="#">Files</a></li>
-    </ul>    
+    <%= render "/layouts/side_menu" %>
   </div>
   <div class="content col-xs-9">
     <div>
@@ -20,5 +16,5 @@
 </div>
 
 <br>
-<%= link_to "Edit this project", edit_project_path(@project) %>
+<%= link_to "Edit this project", [:edit, @project] %>
 
