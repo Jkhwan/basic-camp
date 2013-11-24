@@ -15,6 +15,10 @@
 @import "bootstrap";
 @import "bootstrap-datepicker";
 
+body {
+  background: image-url("background.png") repeat center center;
+}
+
 div.row {
   margin-right: 0px;
 }
@@ -38,7 +42,8 @@ nav.navbar-default {
 
 .panel-primary {
   width: 40%;
-  margin: 70px auto;
+  margin: 40px auto;
+  background-color: rgba(255, 255, 255, 0.9);
   input.form-control {
     margin-bottom: 10px;
   }

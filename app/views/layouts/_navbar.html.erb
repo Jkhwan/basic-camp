@@ -21,7 +21,7 @@
         </li>
       <% else %>
         <li>
-          <%= link_to "Sign In", sessions_path, class: "btn btn-default navbar-btn"%>
+          <%= yield :navbar_link %>
         </li>
       <% end %>
     </ul>

@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
 
-  before_action :require_user
+  before_action :require_user, :restrict_access
 
   def edit
   end
