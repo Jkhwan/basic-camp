@@ -2,5 +2,5 @@
   <li class="<%= yield :home %>"><%= link_to "Home", [@project] %></li>
   <li class="<%= yield :todos %>"><%= link_to "Todo", [@project, :todos] %></li>
   <li class="<%= yield :discussions %>"><%= link_to "Discussion", [@project, :discussions] %></li>
-  <li class="<%= yield :files %>"><a href="#">Files</a></li>
+  <li class="<%= yield :files %>"><%= link_to "Files", project_assets_path(@project) %></li>
 </ul>    

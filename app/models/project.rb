@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   has_many :participants, dependent: :destroy
   has_many :todos
   has_many :discussions
+  has_many :assets
 
   validates :name, :description, presence: true
 

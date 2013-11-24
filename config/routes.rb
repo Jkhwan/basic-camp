@@ -4,6 +4,7 @@ BasicCamp::Application.routes.draw do
   resources :projects do
     resources :todos
     resources :discussions
+    resources :assets
   end
   resources :discussions do
     resources :messages

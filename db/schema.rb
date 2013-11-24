@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131123204224) do
+ActiveRecord::Schema.define(version: 20131124061717) do
+
+  create_table "assets", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file"
+  end
+
+  add_index "assets", ["project_id"], name: "index_assets_on_project_id"
 
   create_table "discussions", force: true do |t|
     t.integer  "project_id"

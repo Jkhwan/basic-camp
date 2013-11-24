@@ -1,0 +1,22 @@
+<% content_for :files, "active" %>
+<%= link_to "Back to main project page", project_path(@project) %>
+<br><br>
+
+<div class="row">
+
+  <div class="side-menu col-xs-3">
+    <%= render "/layouts/side_menu" %>
+  </div>
+  <div class="content col-xs-9">
+    <%= link_to "Upload an asset", new_project_asset_path(@project) %><br>
+    <% if @assets %>
+      <% @assets.each do |asset| %>
+        <%= link_to file_name(asset), project_asset_path(@project, asset) %>
+        <%= link_to project_asset_path(@project, asset), method: :delete, confirm: "Are you sure?" do %>
+          <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+        <br>
+      <% end %>
+    <% end %>
+  </div>
+</div>

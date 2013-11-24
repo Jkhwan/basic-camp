@@ -18,7 +18,7 @@
                     <div class="col-xs-10">
                       <p class="subject"><%= message.subject %></p>
                       <p class="author">By: <%= author_name(message) %> on <%= pretty_date(message.created_at) %></p>
-                        <%= link_to discussion_message_path(@discussion, message), method: :delete do %>
+                        <%= link_to discussion_message_path(@discussion, message), method: :delete, confirm: "Are you sure?" do %>
                           <span class="glyphicon glyphicon-trash"></span>
                         <% end %>
                       <p><%= message.content %></p>
