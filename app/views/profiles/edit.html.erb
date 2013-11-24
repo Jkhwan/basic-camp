@@ -5,9 +5,9 @@
       <li><a href="#avatar" data-toggle="tab">Avatar</a></li>
     </ul>
   </div>
-  <br>
   <div class="tab-content">
     <div class="panel-body tab-pane active" id="user-info">
+    <br>
     <%= simple_form_for @user, url: profile_path, html: { class: "form-inline profile", role: "form" }, defaults: { error: false, required: false, input_html: {class: "form-control"} } do |f| %>
       <%= f.input :username, disabled: true, input_html: { value: @user.username } %>
       <%= f.input :email, input_html: { value: @user.email } %>
@@ -26,33 +26,12 @@
     <% end %>
     </div><br>
     <div class="panel-body tab-pane" id="avatar">
-      
+      <%= image_tag @user.avatar.url(:thumb) if @user.avatar? %>
+      <%= simple_form_for @user, url: profile_path, html: { class: "form-inline profile", role: "form" } do |f| %>
+        <%= f.file_field :avatar %>
+        <%= f.submit :Upload %>
+      <% end %>
     </div>
   </div>
 
 </div>
-
-<!-- <div class="panel panel-primary login">
-  <div class="panel-heading">
-    <h4>User Profile</h4>
-  </div>
-  <br>
-  <div class="panel-body">
-  <%= simple_form_for @user, url: profile_path, html: { class: "form-inline profile", role: "form" }, defaults: { error: false, required: false, input_html: {class: "form-control"} } do |f| %>
-    <%= f.input :username, disabled: true, input_html: { value: @user.username } %>
-    <%= f.input :email, input_html: { value: @user.email } %>
-    <%= f.input :first_name, input_html: { value: @user.first_name } %>
-    <%= f.input :last_name, input_html: { value: @user.last_name } %>
-    <br>
-    <% if @user && @user.errors.any? %>
-      <div class="alert alert-danger">
-        <% @user.errors.full_messages.each_with_index do |msg, index| %>
-          <p><%= index+1 %>. <%= msg %>.<p> 
-        <% end %>
-      </div>
-      <br>
-    <% end %>
-    <%= f.button :submit, "Submit your changes", class: 'btn btn-primary' %>
-  <% end %>
-  </div><br>
-</div> -->

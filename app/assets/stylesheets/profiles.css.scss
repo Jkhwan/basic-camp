@@ -16,4 +16,11 @@ div.panel.profile {
       color: #fff;
     }
   }
+  div#avatar {
+    img {
+      margin: 0px auto;
+      border-radius: 50%;
+      display: block;
+    }
+  }
 }
