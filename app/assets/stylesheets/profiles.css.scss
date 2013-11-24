@@ -1,3 +1,19 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.panel.profile {
+  ul.nav-pills {
+    margin: 0px;
+    li.active a, li.active:hover a {
+      color: #2a6496;
+      background-color: #eee;
+    }
+    li:hover a {
+      background-color: #428bca;
+    }
+    li a {
+      color: #fff;
+    }
+  }
+}

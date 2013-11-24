@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :discussions
   has_many :messages
 
+  mount_uploader :avatar, AvatarUploader
   has_secure_password
 
   validates :username, uniqueness: true, presence: true
