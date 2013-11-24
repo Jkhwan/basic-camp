@@ -1,0 +1,17 @@
+<div class="row add-comment">
+
+  <%= simple_form_for @message, url: discussion_messages_path(@discussion), method: :post, defaults: { error: false, required: false, label: false, input_html: { class: "form-control counted" } } do |f| %>
+    <%= f.input :subject, placeholder: "Subject *" %>
+    <%= f.input :content, input_html: { rows: 4 }, placeholder: "Type in your message *" %>
+    <% if @message && @message.errors.any? %>
+      <div class="alert alert-danger">
+        <% @message.errors.full_messages.each_with_index do |msg, index| %>
+          <p><%= index+1 %>. <%= msg %>.<p> 
+        <% end %>
+      </div>
+      <br>
+    <% end %>
+    <%= f.button :submit, "Submit New Message", class: "btn btn-info" %>
+  <% end %>
+
+</div>

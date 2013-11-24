@@ -1,2 +1,17 @@
-<h1>Discussions#show</h1>
-<p>Find me in app/views/discussions/show.html.erb</p>
+<% content_for :discussions, "active" %>
+<%= link_to "Back to all discussions", project_discussions_path(@project) %>
+<br><br>
+
+<div class="row">
+
+  <div class="side-menu col-xs-3">
+    <%= render "/layouts/side_menu" %>
+  </div>
+  <div class="content col-xs-9">
+
+    <%= render '/discussions/discussion', discussion: @discussion %>
+    <%= render '/discussions/messages' %>
+
+  </div>
+</div>
+<%= link_to "Edit this discussion", edit_project_discussion_path(@project, @discussion.id) %>

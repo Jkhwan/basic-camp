@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131123024748) do
+ActiveRecord::Schema.define(version: 20131123204224) do
 
   create_table "discussions", force: true do |t|
     t.integer  "project_id"
@@ -28,14 +28,14 @@ ActiveRecord::Schema.define(version: 20131123024748) do
   create_table "messages", force: true do |t|
     t.string   "subject"
     t.text     "content"
-    t.integer  "Discussion_id"
-    t.integer  "User_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "discussion_id"
+    t.integer  "user_id"
   end
 
-  add_index "messages", ["Discussion_id"], name: "index_messages_on_Discussion_id"
-  add_index "messages", ["User_id"], name: "index_messages_on_User_id"
+  add_index "messages", ["discussion_id"], name: "index_messages_on_discussion_id"
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
   create_table "participants", force: true do |t|
     t.datetime "created_at"

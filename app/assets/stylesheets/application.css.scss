@@ -15,6 +15,10 @@
 @import "bootstrap";
 @import "bootstrap-datepicker";
 
+div.row {
+  margin-right: 0px;
+}
+
 nav.navbar-default {
   margin-bottom: 0px;
   ul.navbar-nav a {

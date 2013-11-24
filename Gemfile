@@ -24,6 +24,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'simple_form'
 
+gem 'carrierwave'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 

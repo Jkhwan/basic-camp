@@ -4,7 +4,8 @@ class DiscussionsController < ApplicationController
   before_action :require_discussion, only: [:edit, :update, :show]
 
   def show
-
+    @messages = @discussion.messages.order_by_date
+    @message = @discussion.messages.new
   end
 
   def update
