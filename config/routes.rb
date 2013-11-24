@@ -1,5 +1,6 @@
 BasicCamp::Application.routes.draw do
 
+  get "profiles/edit"
   root to: 'welcome#index'
   resources :projects do
     resources :todos
@@ -9,6 +10,7 @@ BasicCamp::Application.routes.draw do
   resources :discussions do
     resources :messages
   end
+  resource :profile, only: [:edit, :update]
   resources :users, only: [:new, :create]
   resources :sessions, only: [:index, :create, :destroy], path: :login
   
