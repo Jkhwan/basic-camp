@@ -5,3 +5,35 @@
 ul.nav {
   margin: 0 10%;
 }
+
+div.projects.container {
+  .row {
+    margin-top: 70px;
+  }
+  .thumbnail {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-width: 100%;
+    img {
+      padding: 9px;
+      max-width: 100%;
+      &.add {
+        padding: 70px;
+      }
+    }
+    p {
+      padding: 3px 9px;  
+      &.view-btn {
+        padding: 9px;
+      }
+      &.title {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-bottom: 0px;
+      }
+      &.description {
+        height: 80px;
+      }
+    }
+  }
+}
