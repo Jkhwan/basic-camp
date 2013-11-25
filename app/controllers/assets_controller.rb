@@ -1,6 +1,6 @@
 class AssetsController < ApplicationController
 
-  before_action :require_project
+  before_action :require_project, :restrict_access
 
   def show
     @asset = @project.assets.find(params[:id])
