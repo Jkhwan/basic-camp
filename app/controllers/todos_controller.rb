@@ -1,7 +1,7 @@
 class TodosController < ApplicationController
 
   before_action :restrict_access, :require_user, :require_project
-  before_action :require_todo, only: [:edit, :update]
+  before_action :require_todo, only: [:edit, :update, :destroy]
 
   def new
     @todo = @project.todos.new
@@ -21,7 +21,7 @@ class TodosController < ApplicationController
   end
 
   def index
-    @todos = @project.todos.all
+    @todos = @project.todos.sort_by
   end
 
   def edit
@@ -34,6 +34,11 @@ class TodosController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @todo.destroy
+    redirect_to project_todos_path, notice: "Todo was deleted successfully."
   end
 
   protected

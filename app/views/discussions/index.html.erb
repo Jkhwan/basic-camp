@@ -1,23 +1,42 @@
 <% content_for :discussions, "active" %>
-<%= link_to "Back to main discussion page", project_path(@project) %>
-<br><br>
 
-<div class="row">
+<div class="container row">
 
   <div class="side-menu col-xs-3">
     <%= render "/layouts/side_menu" %>
   </div>
-  <div class="content col-xs-9">
-    <% if @discussions %>
-      <% @discussions.each do |discussion| %>
-        <%= link_to discussion.subject, project_discussion_path(@project, discussion.id) %>
-        <%= discussion.content %>
-        <%= link_to "Edit this discussion", edit_project_discussion_path(@project, discussion.id) %>
-        <br>
-      <% end %>
-    <% end %>
+  <div class="discussion content col-xs-9">
+    <%= link_to "Add a new discussion", new_project_discussion_path(@project) %>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Started By</th>
+            <th>Subject</th>
+            <th>Discussion</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @discussions %>
+            <% @discussions.each do |discussion| %>
+              <tr>
+                <td>
+                  <%= link_to project_discussion_path(@project, discussion), method: :delete, class: "delete-btn", confirm: "Are you sure?" do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </td>
+                <td><%= author_name(discussion) %></td>
+                <td><%= link_to discussion.subject, project_discussion_path(@project, discussion.id) %></td>
+                <td><%= link_to discussion.content, project_discussion_path(@project, discussion.id)%></td>
+                <td><%= short_date(discussion.created_at) %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
-<br>
-<%= link_to "Add a new disucssion", new_project_discussion_path(@project) %>

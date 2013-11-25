@@ -33,3 +33,11 @@ form.todo {
     display: inline-block;
   }
 }
+
+div.todo.content {
+  padding-right: 50px;
+  table {
+    background-color: #eee;
+    border: 1px solid #bbb;
+  }
+}

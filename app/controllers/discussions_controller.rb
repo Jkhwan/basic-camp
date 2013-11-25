@@ -17,7 +17,7 @@ class DiscussionsController < ApplicationController
   end
 
   def index
-    @discussions = @project.discussions
+    @discussions = @project.discussions.order_by_date
   end
 
   def edit

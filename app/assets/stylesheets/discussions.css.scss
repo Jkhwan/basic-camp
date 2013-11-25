@@ -4,6 +4,10 @@
 
 div.messages.container, div.discussion.container {
   width: 100%;
+  p.subject {
+    margin-bottom: 0px;
+    font-weight: bold;
+  }
   div.panel-primary {
     width: 100%;
     margin: 0px;
@@ -39,5 +43,13 @@ div.messages.container, div.discussion.container {
         margin-left: 35%;
       }
     }
+  }
+}
+
+div.discussion.content {
+  padding-right: 50px;
+  table {
+    background-color: #eee;
+    border: 1px solid #bbb;
   }
 }

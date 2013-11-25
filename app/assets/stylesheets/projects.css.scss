@@ -2,14 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-ul.nav {
+ul.nav.nav-pills {
   margin: 0 10%;
 }
 
-div.projects.container {
-  .row {
-    margin-top: 70px;
-  }
+div.home.container {
   .thumbnail {
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -37,3 +34,25 @@ div.projects.container {
     }
   }
 }
+
+div.jumbotron {
+  border: 1px solid #bbb;
+  padding: 20px 60px;
+}
+
+div.project-todo, div.project-discussion, div.project-file {
+  .panel-heading {
+    h3.panel-title {
+      display: inline-block;
+    }
+    a {
+      float: right;
+    }
+  }
+  .thumbnail {
+    p.title {
+      text-align: center;
+    }
+  }
+}
+

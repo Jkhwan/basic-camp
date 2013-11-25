@@ -4,6 +4,9 @@ class ProjectsController < ApplicationController
   before_action :require_project, only: [:show, :edit, :update]
   
   def show
+    @discussions = @project.discussions.order_by_date.limit(3)
+    @todos = @project.todos.sort_by.limit(3)
+    @assets = @project.assets.limit(3)
   end
 
   def index

@@ -10,6 +10,7 @@ class AssetsController < ApplicationController
 
   def index
     @assets = @project.assets
+    @asset = @project.assets.new
   end
 
   def new
@@ -22,7 +23,7 @@ class AssetsController < ApplicationController
     if @asset.save
       redirect_to project_assets_path, notice: "File was uploaded successfully."
     else
-      render :new
+      redirect_to project_assets_path, alert: "Upload failed - invalid file format."
     end
   end
 

@@ -1,18 +1,115 @@
 <% content_for :home, "active" %>
-<%= link_to "Back to all projects", projects_path %>
-<br><br>
-<div class="row">
+<div class="container row">
 
   <div class="side-menu col-xs-3">
     <%= render "/layouts/side_menu" %>
   </div>
   <div class="content col-xs-9">
-    <div>
-      <%= @project.name %><br>
-      <%= @project.description %>
+    <div class="row jumbotron">
+      <h1><%= @project.name %></h1>
+      <p><%= @project.description %></p>
     </div>
+
+    <!-- Todo -->
+    <div class="row project-todo">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Todos</h3>
+          <%= link_to "More", project_todos_path(@project) %>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Importance</th>          
+                  <th>Due Date</th>
+                  <th>Completed</th>
+                </tr>
+              </thead>  
+              <tbody>
+                <% if @todos %>
+                  <% @todos.each do |todo| %>
+                    <tr>
+                      <td><%= todo.name %></td>
+                      <td><%= todo.importance %></td>
+                      <td><%= todo.due_date %></td>
+                      <td><%= completed(todo.completed) %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Discussion -->
+    <div class="row project-discussion">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Discussions</h3>
+          <%= link_to "More", project_discussions_path(@project) %>
+        </div>
+
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Started By</th>
+                  <th>Subject</th>
+                  <th>Discussion</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% if @discussions %>
+                  <% @discussions.each do |discussion| %>
+                    <tr>
+                      <td><%= author_name(discussion) %></td>
+                      <td><%= link_to discussion.subject, project_discussion_path(@project, discussion.id) %></td>
+                      <td><%= link_to discussion.content, project_discussion_path(@project, discussion.id)%></td>
+                      <td><%= short_date(discussion.created_at) %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>   
+        </div>
+      </div>   
+    </div>
+
+    <!-- Files -->
+    <div class="row project-file">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Files</h3>
+          <%= link_to "More", project_assets_path(@project) %>
+        </div>
+        <div class="panel-body">
+          <% if @assets %>
+            <% @assets.each do |asset| %>  
+              <% unless asset.id.nil? %>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                  <div class="thumbnail">
+                    <%= image_tag "file.png" %>
+                    <p class="title">
+                      <%= file_name(asset) %>
+                    </p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
   </div>
-  
 </div>
 
 <br>

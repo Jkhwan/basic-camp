@@ -1,26 +1,47 @@
 <% content_for :todos, "active" %>
-<%= link_to "Back to main project page", project_path(@project) %>
-<br><br>
 
-<div class="row">
+<div class="container row">
 
   <div class="side-menu col-xs-3">
     <%= render "/layouts/side_menu" %>
   </div>
-  <div class="content col-xs-9">
-    <% if @todos %>
-      <% @todos.each do |todo| %>
-        <%= todo.name %>
-        <%= todo.importance %>
-        <%= todo.due_date %>
-        <%= todo.completed %>
-        <%= link_to "Edit this todo", edit_project_todo_path(@project, todo.id) %>
-        <br>
-      <% end %>
-    <% end %>
+  <div class="todo content col-xs-9">
+    <%= link_to "Add a new todo", new_project_todo_path(@project) %>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>Name</th>
+            <th>Importance</th>          
+            <th>Due Date</th>
+            <th>Completed</th>
+          </tr>
+        </thead>  
+        <tbody>
+          <% if @todos %>
+            <% @todos.each do |todo| %>
+              <tr>
+                <td>
+                  <%= link_to edit_project_todo_path(@project, todo) do %>
+                    <span class="glyphicon glyphicon-edit"></span>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to project_todo_path(@project, todo), method: :delete, class: "delete-btn", confirm: "Are you sure?" do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </td>
+                <td><%= todo.name %></td>
+                <td><%= todo.importance %></td>
+                <td><%= todo.due_date %></td>
+                <td><%= completed(todo.completed) %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
-
-
-<br>
-<%= link_to "Add a new todo", new_project_todo_path(@project) %>

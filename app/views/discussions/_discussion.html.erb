@@ -3,11 +3,11 @@
     <div class="well">
       <div class="row">
         <div class="col-xs-2">
-          <a href="http://critterapp.pagodabox.com/others/admin" class="thumbnail">  <img src="http://critterapp.pagodabox.com/img/user.jpg" alt="">
-          </a>
+          <%= image_tag User.find(discussion.user_id).avatar.url(:small_thumb) %>
         </div>
         <div class="col-xs-10">
-          <p><strong><%= discussion.subject %></strong></p>
+          <p class="subject"><%= discussion.subject %></p>
+          <p class="author">By: <%= author_name(discussion) %> on <%= pretty_date(discussion.created_at) %></p>
           <p><%= discussion.content %></p>
         </div>
       </div>
