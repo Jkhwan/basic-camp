@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_action :restrict_access, :require_user
-  before_action :require_project, only: [:show, :edit, :update]
+  before_action :require_project, only: [:show, :edit, :update, :destroy]
   
   def show
     @discussions = @project.discussions.order_by_date.limit(3)
@@ -20,7 +20,9 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
-  def delete
+  def destroy
+    @project.destroy
+    redirect_to projects_path, notice: "Project was deleted successfully."
   end
 
   def create

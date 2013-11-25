@@ -27,6 +27,9 @@ div.home.container {
         font-size: 1.1em;
         font-weight: bold;
         margin-bottom: 0px;
+        a {
+          float: right;
+        }
       }
       &.description {
         height: 80px;

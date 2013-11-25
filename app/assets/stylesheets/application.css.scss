@@ -22,6 +22,7 @@ body {
 div.row {
   margin-right: 0px;
   &.container, &.projects {
+    width: 100%;
     margin-top: 40px;
   }
 }
