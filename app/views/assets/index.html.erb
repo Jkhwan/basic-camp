@@ -8,15 +8,34 @@
     <%= render "/layouts/side_menu" %>
   </div>
   <div class="content col-xs-9">
-    <%= link_to "Upload a file", new_project_asset_path(@project) %><br>
-    <% if @assets %>
-      <% @assets.each do |asset| %>
-        <%= link_to file_name(asset), project_asset_path(@project, asset) %>
-        <%= link_to project_asset_path(@project, asset), method: :delete, confirm: "Are you sure?" do %>
-          <span class="glyphicon glyphicon-trash"></span>
+    <div class="assets">
+      <div class="row">
+        <% if @assets %>
+          <% @assets.each do |asset| %>  
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+              <div class="thumbnail">
+                <%= image_tag "file.png" %>
+                <p class="title"><%= file_name(asset) %>                <%= link_to project_asset_path(@project, asset), method: :delete, class: "delete-btn", confirm: "Are you sure?" do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </p>
+                <p class="download-btn"><%= link_to "Download", project_asset_path(@project, asset), class: "btn btn-primary btn-lg btn-block" %></p>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-        <br>
-      <% end %>
-    <% end %>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+          <div class="thumbnail">
+            <%= link_to new_project_asset_path(@project) do %>
+              <%= image_tag "add_new_project.png", class: "add" %>
+            <% end %>
+            <p class="title">&nbsp;</p>
+            <p class="upload-btn"><%= link_to "Upload New File", new_project_asset_path(@project), class: "btn btn-primary btn-lg btn-block" %></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+

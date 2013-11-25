@@ -1,3 +1,32 @@
 // Place all the styles related to the assets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.assets {
+  .thumbnail {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-width: 100%;
+  }
+  img {
+    padding: 9px;
+    max-width: 100%;
+    &.add {
+      padding: 70px;
+    }
+  }
+  p {
+    padding: 3px 9px;  
+    &.download-btn, &.upload-btn {
+      padding: 9px;
+    }
+    &.title {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 0px;
+    }
+    a.delete-btn {
+      float: right;
+    }
+  }
+}
