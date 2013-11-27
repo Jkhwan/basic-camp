@@ -23,9 +23,11 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'simple_form'
-
 gem 'rmagick'
 gem 'carrierwave'
+gem 'valid_email'
+gem 'faker'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -42,10 +44,11 @@ group :doc do
 end
 
 # Debugging tools
-group :development do
-  gem 'pry-rails'
-  gem 'better_errors'
-  gem "binding_of_caller"
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'pry'
+  gem 'pry-debugger'
 end
 
 # Use ActiveModel has_secure_password

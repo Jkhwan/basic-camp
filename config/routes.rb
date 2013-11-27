@@ -1,6 +1,5 @@
 BasicCamp::Application.routes.draw do
 
-  get "profiles/edit"
   root to: 'welcome#index'
   resources :projects do
     resources :todos

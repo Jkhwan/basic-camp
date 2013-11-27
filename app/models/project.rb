@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
   has_many :discussions
   has_many :assets
 
+  belongs_to :owner, class_name: "User"
+
   validates :name, :description, presence: true
 
   after_create :add_owner_as_participant
@@ -12,6 +14,6 @@ class Project < ActiveRecord::Base
   protected
 
   def add_owner_as_participant
-    @particiant = Participant.create(project_id: self.id, user_id: self.owner_id)
+    @participant = Participant.create(project_id: self.id, user_id: self.owner_id)
   end
 end
