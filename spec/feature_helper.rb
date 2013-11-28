@@ -12,5 +12,4 @@ def create_project(name = nil, description = nil)
   fill_in 'project[name]', with: (name || project.name)
   fill_in 'project[description]', with: (description || project.description)
   click_button "Create Project"
-  project
 end

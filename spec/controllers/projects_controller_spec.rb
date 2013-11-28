@@ -119,7 +119,6 @@ describe ProjectsController do
   end
 
   context "PUT 'update'" do
-
     it "redirects to project show page on success" do
       put :update, id: project.id, project: FactoryGirl.attributes_for(:project)
       expect((assigns(:project)).owner).to eq(@user)
