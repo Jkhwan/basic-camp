@@ -5,7 +5,7 @@ class AssetsController < ApplicationController
   def show
     @asset = @project.assets.find(params[:id])
     filename = @asset.file.url.split('/').last
-    send_data @asset.file.url, filename: filename
+    send_file @asset.file.path
   end
 
   def index
