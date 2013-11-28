@@ -11,12 +11,14 @@ feature "Authentication" do
   end
 
   scenario "succeeds with correct credentials" do
-    u = FactoryGirl.create :user
-    visit '/login'
-    fill_in 'username', with: u.username
-    fill_in 'password', with: u.password
-    click_button 'Log In'
+    create_user_and_login
     expect(page).to have_content 'Welcome back'
+  end
+
+  scenario "logout successfully" do
+    create_user_and_login
+    click_link "Logout"
+    expect(page).to have_content "Log into"
   end
   
 end

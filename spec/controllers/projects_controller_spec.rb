@@ -4,6 +4,8 @@ describe ProjectsController do
 
   render_views
 
+  let(:project) { FactoryGirl.create :project, owner: @user }
+
   before :each do
     @user = FactoryGirl.create :user
     session[:user_id] = @user.id
@@ -31,35 +33,31 @@ describe ProjectsController do
 
   context "GET 'show'" do
 
-    before :each do 
-      @project = FactoryGirl.create :project, owner: @user
-    end
-
     it "returns http success" do
-      get :show, id: @project.id
+      get :show, id: project.id
       expect(response).to be_success
     end
 
     it "renders the show template" do
-      get :show, id: @project.id
+      get :show, id: project.id
       expect(response).to render_template(:show)
     end
 
     it "loads discussions of this project to @discussions" do
-      discussion = FactoryGirl.create :discussion, project: @project, user: @user
-      get :show, id: @project.id
+      discussion = FactoryGirl.create :discussion, project: project, user: @user
+      get :show, id: project.id
       expect(assigns(:discussions)).to match_array([discussion])
     end
 
     it "loads todos of this project to @todos" do
-      todo = FactoryGirl.create :todo, project: @project
-      get :show, id: @project.id
+      todo = FactoryGirl.create :todo, project: project
+      get :show, id: project.id
       expect(assigns(:todos)).to match_array([todo])
     end
 
     it "loads assets of this project to @assets" do
-      asset = FactoryGirl.create :asset, project: @project, user: @user
-      get :show, id: @project.id
+      asset = FactoryGirl.create :asset, project: project, user: @user
+      get :show, id: project.id
       expect(assigns(:assets)).to match_array([asset])
     end
 
@@ -78,34 +76,29 @@ describe ProjectsController do
   end
 
   context "DELETE 'destroy'" do
-    before :each do
-      @project = FactoryGirl.create :project, owner: @user
-    end
 
     it "deletes the project" do
+      project
       count = Project.count
-      delete :destroy, id: @project.id
+      delete :destroy, id: project.id
       expect(Project.count).to eq(count-1)
     end
 
     it "redirects to projects index page" do
-      delete :destroy, id: @project.id
+      delete :destroy, id: project.id
       expect(response).to redirect_to(projects_path)
     end
   end
 
   context "GET 'edit'" do
-    before :each do
-      @project = FactoryGirl.create :project, owner: @user
-    end
 
     it "returns http success" do
-      get :edit, id: @project.id
+      get :edit, id: project.id
       expect(response).to be_success
     end
 
     it "renders the edit page" do
-      get :edit, id: @project.id
+      get :edit, id: project.id
       expect(response).to render_template(:edit)
     end
   end
@@ -126,17 +119,15 @@ describe ProjectsController do
   end
 
   context "PUT 'update'" do
-    before :each do
-      @project = FactoryGirl.create :project, owner: @user
-    end
+
     it "redirects to project show page on success" do
-      put :update, id: @project.id, project: FactoryGirl.attributes_for(:project)
+      put :update, id: project.id, project: FactoryGirl.attributes_for(:project)
       expect((assigns(:project)).owner).to eq(@user)
-      expect(response).to redirect_to(project_path(@project))
+      expect(response).to redirect_to(project_path(project))
     end
 
     it "renders edit page on failure" do
-      put :update, id: @project.id, project: FactoryGirl.attributes_for(:project, name: nil)
+      put :update, id: project.id, project: FactoryGirl.attributes_for(:project, name: nil)
       expect((assigns(:project)).name).to eq(nil)
       expect(response).to render_template(:edit)
     end
