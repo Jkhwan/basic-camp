@@ -48,6 +48,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-debugger'
+  gem 'capybara', '~> 2.2.0'
+  gem 'poltergeist'
 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
