@@ -1,5 +1,7 @@
 BasicCamp::Application.routes.draw do
 
+  get "invitations/new"
+  get "invitations/show"
   root to: 'welcome#index'
   resources :projects do
     resources :todos

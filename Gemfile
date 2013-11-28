@@ -42,6 +42,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  gem 'guard'
+  gem 'guard-rails'
+end
+
 # Debugging tools
 group :development, :test do
   gem 'rspec-rails'
