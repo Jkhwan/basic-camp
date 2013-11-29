@@ -5,7 +5,9 @@ class AssetsController < ApplicationController
   def show
     @asset = @project.assets.find(params[:id])
     filename = @asset.file.url.split('/').last
-    send_file @asset.file.path
+
+    # TODO fix to upload to S3 for Heroku Deployment
+    send_data @asset.file.path, filename: filename
   end
 
   def index
