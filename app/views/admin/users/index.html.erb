@@ -1,0 +1,16 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>User</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% unless @users.empty? %>
+      <% @users.each do |user| %>
+        <tr>
+          <td class="user"><%= user.first_name %></td>
+        </tr>
+      <% end %>
+    <% end %>    
+  </tbody>
+</table>

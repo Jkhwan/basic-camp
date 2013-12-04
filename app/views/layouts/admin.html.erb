@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Open Source Project Management Software - Basic Camp</title>
+  <%= stylesheet_link_tag    "admin", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "admin", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render "/layouts/navbar" %>
+
+  <% flash.each do |key,value| %>
+    <% key = bootstrap_alert(key) %>
+    <div class="text-center alert alert-<%= key %> %>"><%= value %></div>
+  <% end %>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
+</html>

@@ -1,0 +1,229 @@
+[33mcommit 1541046562b7d55a925020eebc947482d3cd7f8a[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Fri Nov 29 04:06:20 2013 +0000
+
+    Added more invitation spec for sending confirmation email
+
+[33mcommit de9550f076b137ef96079634add6caed153e2048[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Thu Nov 28 22:46:19 2013 +0000
+
+    Added invitation model and rspec test cases
+
+[33mcommit 86b4863746f12b67a8e41b191293bf3593afc257[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Thu Nov 28 19:50:19 2013 +0000
+
+    Fixed asset file_name function bug
+
+[33mcommit a3e31c34be85e4430e7b86b6f4a5f054fc6f583a[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Thu Nov 28 17:20:56 2013 +0000
+
+    Fixed issue with file uploads
+
+[33mcommit ff6b4472a2446b6a3495e70bf636b0f03cd3075c[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Thu Nov 28 04:23:05 2013 +0000
+
+    Refactored project controller spec to use let
+
+[33mcommit ee1167eec763794c425e3e4a3ead409282c20ee0[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Thu Nov 28 00:12:25 2013 +0000
+
+    Added capybara and poltergeist
+
+[33mcommit d7867f0e8316aa800a5c945c5c42d175095a820f[m
+Merge: b5e71da bd933a5
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Wed Nov 27 23:09:04 2013 +0000
+
+    Merge branch 'master' of https://github.com/Jkhwan/basic-camp
+
+[33mcommit b5e71da7cd760e2163cbef3a880a16db55d345da[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Wed Nov 27 23:08:46 2013 +0000
+
+    Added rspec test cases for Projects Controller
+
+[33mcommit bd933a5e5fc9b6f6fece31979b9897024a6b7ff5[m
+Author: Jkhwan <Jwan823@gmail.com>
+Date:   Wed Nov 27 09:11:36 2013 -0800
+
+    Update README.md
+
+[33mcommit 23ef7b2f4ac478bcd14416161e4bcbe79ebf6d8b[m
+Merge: ddf7520 3b35c30
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Wed Nov 27 09:09:23 2013 -0800
+
+    Merge branch 'master' of https://github.com/Jkhwan/basic-camp
+
+[33mcommit ddf7520606c2c4dac5b21f9a2cb44cf7775f2915[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Wed Nov 27 09:09:03 2013 -0800
+
+    Added user stories, page list, erd and other wireframes
+
+[33mcommit 3b35c30e39374549e691b9db08975a51004c76f8[m
+Author: Jkhwan <Jwan823@gmail.com>
+Date:   Wed Nov 27 09:07:11 2013 -0800
+
+    Update README.md
+
+[33mcommit c3862931cef77b494ce071256279eed56d6bbe02[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Tue Nov 26 22:56:10 2013 -0800
+
+    Added README.md, wireframing and ER diagrams
+
+[33mcommit 06d14613263859fa485035b0cb711cd175cda1e0[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Wed Nov 27 06:10:01 2013 +0000
+
+    Modified Gemfile and database.yml to use Postgresql for Heroku deployment
+
+[33mcommit 9f2a3e1ad2b8c4e748d3070bdd981b0e8f7f87c4[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Wed Nov 27 06:03:41 2013 +0000
+
+    Added a few rspec test cases for model testing
+
+[33mcommit a73db0e8c477d9058e4946b2f13a72001257133a[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Mon Nov 25 20:49:29 2013 +0000
+
+    Fixed some formatting issue with container div
+
+[33mcommit 5c6a9816c8be5283069e07a417cef9860449347a[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Mon Nov 25 09:11:38 2013 +0000
+
+    Fixed restrict access issue with assets controller
+
+[33mcommit 5224fc2ab3272a648e4d66124aed0500e9b63a12[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Mon Nov 25 09:04:18 2013 +0000
+
+    Simple styling for project show page
+
+[33mcommit f551e84098bea580c5da461a67c16fccf4bc96b6[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Mon Nov 25 01:23:11 2013 +0000
+
+    Added styling for file upload page
+
+[33mcommit 51fb91974008d95f22df0a90131edfb4369319f4[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Mon Nov 25 00:50:41 2013 +0000
+
+    Added styling for projects index page
+
+[33mcommit 0e3680a9d170b8541ef90f80497907ee75bd94e9[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Sun Nov 24 23:43:10 2013 +0000
+
+    Added background image and fixed navbar link
+
+[33mcommit dfd9fcf92f65a47293e692e5b29ad3924ee0bb65[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Sun Nov 24 18:16:13 2013 +0000
+
+    Implemented user profile picture feature
+
+[33mcommit 0f2c23412676b83a4962e49dc9becad129c451cf[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Sun Nov 24 17:41:18 2013 +0000
+
+    Added avatar field to user
+
+[33mcommit 0abe5f4d29eb998836cb13adabe25f8cf16e6343[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Sun Nov 24 12:18:53 2013 +0000
+
+    Added user profile functionality
+
+[33mcommit 1ba6b68d5e6e9a46d196fd3da95236edbf33595f[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Sun Nov 24 10:58:52 2013 +0000
+
+    Implemented file uploads funtionality
+
+[33mcommit 9eedd8a730db26408ee32886cd6b08c54bcc1ed3[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Sun Nov 24 00:32:16 2013 +0000
+
+    Implemented messages CRUD
+
+[33mcommit f283dd1896772febe6034484ca248ff90ea9e3ca[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Sat Nov 23 17:26:00 2013 +0000
+
+    Implemented basic discussion CRUD
+
+[33mcommit 81c324ba09b55b70ac80f1473ff24caa8750472d[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Sat Nov 23 01:57:55 2013 +0000
+
+    Added Discussions and Messages controller
+
+[33mcommit a4be7c44970675666b606a06fe54fa464063f061[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Sat Nov 23 01:55:45 2013 +0000
+
+    Added discussion and message model
+
+[33mcommit e0bc67c69ef322f5162c2f9b8e125b7cdfcf0405[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Sat Nov 23 01:50:20 2013 +0000
+
+    Refactored side menu to partial, implemented todo CRUD
+
+[33mcommit 2608048e1dc51d99df6ce4c64d6a52d61727164f[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Fri Nov 22 22:00:36 2013 +0000
+
+    Added todo model
+
+[33mcommit e2e938a4951842fa897dba8d6c00ca8ddd35b832[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Fri Nov 22 20:23:22 2013 +0000
+
+    Added show,new,edit,update action to ProjectsController
+
+[33mcommit edfd8757322db82494f2b8d3b5a5d9876572f515[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Fri Nov 22 03:21:25 2013 +0000
+
+    Added session controller and implemented user authentification
+
+[33mcommit 311bc2a73791716eb8ce67dfd088267e99570c62[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Thu Nov 21 23:32:33 2013 +0000
+
+    Add user controller
+
+[33mcommit a02526f34165996678c9b525f2c3fc0f537789f6[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Thu Nov 21 23:28:59 2013 +0000
+
+    Add welcome controller for front page and user sign up form
+
+[33mcommit b7e8fa0e7a0dd66f61011984c88df0a389a4ed9c[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Thu Nov 21 05:38:29 2013 +0000
+
+    Add projects controller
+
+[33mcommit 7049e717b8fe8498b3cb3b8e531b708bccf30b93[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Thu Nov 21 05:02:28 2013 +0000
+
+    Creates user, participant, and project models
+
+[33mcommit 42ead5e615e7d9b293c222e11355b748424c3d1d[m
+Author: Jason Wan <jwan823@gmail.com>
+Date:   Thu Nov 21 04:26:58 2013 +0000
+
+    Initial commit

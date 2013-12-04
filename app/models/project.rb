@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   has_many :todos
   has_many :discussions
   has_many :assets
+  has_many :invitations
 
   belongs_to :owner, class_name: "User"
 

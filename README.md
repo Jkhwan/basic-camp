@@ -6,4 +6,4 @@ I have tried to implement most of the core features in BaseCamp, including discu
 
 This application was built by going through the entire planning and designing process, including defining user stories, creating a list of all pages, as well as drawing up wireframes and entity relationshp diagrams. All of these documents can be found in the doc folder.
 
-The project is still a work in progress as I will be adding in additional features and test cases as we go through TDD in class this week. It has also been deployed to Heroku and can be viewed at http://basic-camp.herokuapp.com.
+The project is still a work in progress as I will be adding in additional features and test cases as we go through TDD in class this week. It has been deployed to Heroku and can be viewed at http://basic-camp.herokuapp.com.
