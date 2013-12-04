@@ -9,27 +9,15 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree ./public
+ *= require_tree ./admin
  *= require_tree ./shared
  */
 
 @import "bootstrap";
-@import "bootstrap-datepicker";
-
-body {
-  background: image-url("background.png") repeat center center;
-}
-
-div.row {
-  margin-right: 0px;
-  &.container, &.projects {
-    width: 100%;
-    margin-top: 40px;
-  }
-}
 
 nav.navbar-default {
-  margin-bottom: 0px;
+  margin-bottom: 50px;
+
   ul.navbar-nav {
     &.navbar-left li {
       padding-top: 14px;
@@ -47,33 +35,5 @@ nav.navbar-default {
   }
   ul.dropdown-menu a {
     padding: 10px 25px;
-  }
-}
-
-.panel-primary {
-  width: 40%;
-  margin: 40px auto;
-  background-color: rgba(255, 255, 255, 0.9);
-  input.form-control {
-    margin-bottom: 10px;
-  }
-  input.btn-primary {
-    width: 50%;
-    margin-top: 20px;
-    margin-left: 25%;
-  }
-  h4 {
-    margin: 0px;
-  }
-}
-
-div.alert-danger {
-  margin: 0px auto;
-}
-
-@media (min-width: 768px) {
-  .registration.panel-primary div.input {
-      width: 49%;
-      display: inline-block;
   }
 }

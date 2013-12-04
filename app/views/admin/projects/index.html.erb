@@ -1,0 +1,20 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Project Name</th>
+      <th>Project Owner</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% unless @projects.empty? %>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= project.name %></td>
+          <td><%= project.owner.first_name %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+

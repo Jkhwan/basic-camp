@@ -1,5 +1,6 @@
 BasicCamp::Application.routes.draw do
 
+  get "projects/index"
   get "users/index"
   root to: 'welcome#index'
   resources :projects do
@@ -13,6 +14,7 @@ BasicCamp::Application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index]
+    resources :projects, only: [:index]
   end
 
   resources :invitations, only: [:new, :create, :show] do

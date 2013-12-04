@@ -1,8 +1,9 @@
-class Admin::UsersController < ApplicationController
+class Admin::ProjectsController < ApplicationController
 
   layout "admin"
+
   before_action :restrict_access, :restrict_admin_access
   def index
-    @users = User.all
+    @projects = Project.all
   end
 end
