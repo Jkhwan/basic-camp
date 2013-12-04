@@ -4,7 +4,6 @@ class InvitationsController < ApplicationController
 
   def create
     invite = Invitation.new(invitation_parmas)
-    invite.token = generate_token
     project = invite.project = Project.find(params[:id])
     if create.save
       redirect_to project
@@ -14,14 +13,11 @@ class InvitationsController < ApplicationController
   end
 
   def show
+    redirect_to new_invitation_participant_path(params[:id])
   end
 
   protected
   def invitation_parmas
     params.require(:invitation).permit(:email)
-  end
-
-  def generate_token
-
   end
 end

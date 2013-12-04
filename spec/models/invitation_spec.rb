@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Invitation do
 
   let(:invite) { FactoryGirl.build :invitation }
-  after :each do
+  before :each do
     ActionMailer::Base.deliveries.clear
   end
 
@@ -11,6 +11,7 @@ describe Invitation do
     it "should fail if email is empty" do
       invite.email = nil
       expect(invite).to_not be_valid
+      expect(invite).to have(1).errors_on(:email)
       expect(invite.errors[:email].first).to eq("can't be blank")
     end
     it "should fail if it is not associated to a project" do
@@ -22,6 +23,11 @@ describe Invitation do
       invite.token = nil
       expect(invite).to_not be_valid
       expect(invite.errors[:token].first).to eq("can't be blank")
+    end
+    it "should fail if inviter is empty" do
+      invite.inviter = nil
+      expect(invite).to_not be_valid
+      expect(invite.errors[:inviter].first).to eq("can't be blank")
     end
     it "should fail if there is another invitation with the same email and project" do
       FactoryGirl.create :invitation, email: invite.email, project: invite.project
@@ -39,10 +45,20 @@ describe Invitation do
     it "should succeeds in creating new invitation" do
       expect(invite).to be_a(Invitation)
     end
+
+    it "should generate a 32 digit random token" do
+      invite.save
+      expect(invite.token.length).to eq(32)
+    end
+
+    it "should generate a unique token everytime" do
+      invite.save
+      second_invite = FactoryGirl.create :invitation
+      expect(invite.token).to_not eq(second_invite.token)
+    end
   end
 
   context "Email Confirmation" do
-
     it "should be sent when invitation is created successfully" do
       expect(invite.save).to be(true)
       expect(ActionMailer::Base.deliveries.count).to eq(1)

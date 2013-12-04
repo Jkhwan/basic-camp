@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131128213408) do
+ActiveRecord::Schema.define(version: 20131129172002) do
 
   create_table "assets", force: true do |t|
     t.integer  "project_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20131128213408) do
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "inviter_id"
   end
 
   add_index "invitations", ["project_id"], name: "index_invitations_on_project_id"

@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :invitation do
     sequence(:email) { |i| "invitation#{i}@example.com" }
-    token "1234567890"
+    association :inviter, factory: :user
     project
   end
 end

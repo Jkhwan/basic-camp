@@ -1,16 +1,23 @@
 BasicCamp::Application.routes.draw do
 
-  get "invitations/new"
-  get "invitations/show"
   root to: 'welcome#index'
   resources :projects do
     resources :todos
     resources :discussions
     resources :assets
   end
-  resources :discussions do
+  resources :discussions, only: [:index] do
     resources :messages
   end
+
+  namespace :admin do
+    resources :users, only: [:index]
+  end
+
+  resources :invitations, only: [:new, :create, :show] do
+    resources :participants, only: [:new, :create]
+  end
+
   resource :profile, only: [:edit, :update]
   resources :users, only: [:new, :create]
   resources :sessions, only: [:index, :create, :destroy], path: :login

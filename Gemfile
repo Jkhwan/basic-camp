@@ -23,7 +23,7 @@ gem 'simple_form'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'valid_email'
-gem 'faker'
+gem 'default_value_for', :git => 'git://github.com/tsmango/default_value_for.git'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
@@ -42,15 +42,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development do
-  gem 'guard'
-  gem 'guard-rails'
-end
-
 # Debugging tools
 group :development, :test do
+  gem 'guard-rspec'
+  gem 'spork-rails', github: 'sporkrb/spork-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'pry'
   gem 'pry-debugger'
   gem 'capybara', '~> 2.2.0'
