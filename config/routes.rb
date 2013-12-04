@@ -1,5 +1,6 @@
 BasicCamp::Application.routes.draw do
 
+  get "users/index"
   root to: 'welcome#index'
   resources :projects do
     resources :todos

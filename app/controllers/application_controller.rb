@@ -12,6 +12,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def restrict_admin_access
+    unless current_user.admin?
+      flash[:alert] = "You do not have sufficient permissions."
+      redirect_to projects_path
+    end
+  end
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
