@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131205011747) do
+ActiveRecord::Schema.define(version: 20131205043009) do
 
   create_table "assets", force: true do |t|
     t.integer  "project_id"
@@ -67,6 +67,16 @@ ActiveRecord::Schema.define(version: 20131205011747) do
 
   add_index "participants", ["project_id"], name: "index_participants_on_project_id"
   add_index "participants", ["user_id"], name: "index_participants_on_user_id"
+
+  create_table "payments", force: true do |t|
+    t.integer  "subscription_id"
+    t.integer  "amount"
+    t.datetime "paid_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payments", ["subscription_id"], name: "index_payments_on_subscription_id"
 
   create_table "projects", force: true do |t|
     t.string   "name"

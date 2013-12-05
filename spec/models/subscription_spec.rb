@@ -12,11 +12,12 @@ describe Subscription do
       expect(@sub).to_not be_valid
       expect(@sub.errors[:start_date].first).to eq("can't be blank")
     end
-    # it "is invalid to have two subscriptions belonging to the same user" do
-    #   @user = FactoryGirl.create :user
-    #   @sub = FactoryGirl.create :subscription, user: @user
-    #   @second_sub = FactoryGirl.create :subscription, user: @user
-    #   expect(@second_sub).to_not be_valid
-    # end
+    it "is valid to have multiple payments" do
+      @sub = FactoryGirl.create :subscription
+      @sub.payments.create(amount: 800, paid_at: Time.now)
+      @sub.payments.create(amount: 1000, paid_at: Time.now) 
+      expect(@sub).to be_valid
+      expect(@sub.payments.count).to eq(2)
+    end
   end
 end
