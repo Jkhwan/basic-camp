@@ -91,4 +91,23 @@ describe User do
     end
   end
 
+  describe 'Billing Information' do
+    context "Subscription" do
+      it "returns false for new user" do
+        @user = FactoryGirl.build :user
+        expect(@user.paid).to eq(false)
+      end
+    end
+    context "Validation" do
+      let(:user) { FactoryGirl.build :user }
+      it "is invalid if name on card is empty and paid is true" do
+        user.paid = true
+        expect(user).to_not be_valid
+        expect(user.errors[:noc].first).to eq("can't be blank")
+      end
+      it "is valid if name on card is empty and paid is false" do
+        expect(user).to be_valid
+      end
+    end
+  end
 end

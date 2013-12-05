@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131129172002) do
+ActiveRecord::Schema.define(version: 20131205011747) do
 
   create_table "assets", force: true do |t|
     t.integer  "project_id"
@@ -76,6 +76,16 @@ ActiveRecord::Schema.define(version: 20131129172002) do
     t.integer  "owner_id"
   end
 
+  create_table "subscriptions", force: true do |t|
+    t.integer  "user_id"
+    t.date     "start_date"
+    t.date     "last_payment_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
+
   create_table "todos", force: true do |t|
     t.string   "name"
     t.date     "due_date"
@@ -98,6 +108,15 @@ ActiveRecord::Schema.define(version: 20131129172002) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar"
+    t.string   "noc"
+    t.string   "cc_type"
+    t.date     "exp"
+    t.string   "street"
+    t.string   "province"
+    t.string   "postal"
+    t.string   "country"
+    t.boolean  "paid",            default: false
+    t.string   "cc_token"
   end
 
 end
