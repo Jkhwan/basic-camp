@@ -19,5 +19,13 @@ describe Subscription do
       expect(@sub).to be_valid
       expect(@sub.payments.count).to eq(2)
     end
+    it "should have a start date equal to today" do
+      @sub = Subscription.new()
+      expect(@sub.start_date).to eq(Date.today)
+    end
+    it "should have a next payment date equal to same date of last month" do
+      @sub = Subscription.new()
+      expect(@sub.next_payment_date).to eq(Date.today.advance(months: -1))
+    end
   end
 end

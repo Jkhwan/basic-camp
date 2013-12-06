@@ -24,6 +24,8 @@ gem 'rmagick'
 gem 'carrierwave'
 gem 'valid_email'
 gem 'default_value_for', :git => 'git://github.com/tsmango/default_value_for.git'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'timecop'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
