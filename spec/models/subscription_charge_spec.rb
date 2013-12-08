@@ -3,9 +3,9 @@ require 'spec_helper'
 describe SubscriptionCharge do
 
   before :each do
+    allow_any_instance_of(Subscription).to receive(:start_subscription)
     @sub = FactoryGirl.create :subscription
     @sub_charge = SubscriptionCharge.new(@sub)
-    @sub.user.customer_token = "cus_34MO2YIWc9NSPg"
   end
   
   it "should attempt a charge through Stripe" do
@@ -20,7 +20,7 @@ describe SubscriptionCharge do
     context "Success" do
       before :each do
         @stripe_charge_success = double( paid: true )
-        expect(Stripe::Charge).to receive(:create).and_return(@stripe_charge_success)
+        expect(Stripe::Charge).to receive(:create).once.and_return(@stripe_charge_success)
       end
       it "should set last_payment_date to today" do
         @sub_charge.charge!

@@ -17,9 +17,10 @@ class SubscriptionCharge
                )
       @subscription.last_payment_date = Date.today
       @subscription.next_payment_date = @subscription.next_payment_date.advance(months: 1)
-      @subscription.payments.create(amount: PLAN_AMOUNT, paid_at: Time.now)
+      payment = @subscription.payments.create(amount: PLAN_AMOUNT, paid_at: Time.now)
     rescue Stripe::CardError => e
       # TODO: SEND FAILURE EMAIL
+      nil
     end
   end
 end

@@ -13,7 +13,7 @@ BasicCamp::Application.routes.draw do
   end
 
   namespace :admin do
-    resources :users, only: [:index]
+    resources :users, only: [:index] 
     resources :projects, only: [:index]
   end
 
@@ -23,6 +23,7 @@ BasicCamp::Application.routes.draw do
 
   resource :profile, only: [:edit, :update]
   resources :users, only: [:new, :create]
+  resource :subscription, only: [:new, :create]
   resources :sessions, only: [:index, :create, :destroy], path: :login
   
   # The priority is based upon order of creation: first created -> highest priority.
